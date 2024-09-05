@@ -1,5 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-          <H1>HOLA MUNDO</H1>  
+    <h1>Lista de Habitaciones</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Tipo</th>
+                <th>Capacidad</th>
+                <th>Precio por Noche</th>
+                <th>Estado</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for habitacion in habitaciones %}
+            <tr>
+                <td>{{ habitacion.numero_habitacion }}</td>  <!-- Coincide con el campo numero_habitacion -->
+                <td>{{ habitacion.tipo_habitacion }}</td>  <!-- Coincide con el campo tipo_habitacion -->
+                <td>{{ habitacion.capacidad }}</td>  <!-- Coincide con el campo capacidad -->
+                <td>{{ habitacion.precio_noche }}</td>  <!-- Coincide con el campo precio_noche -->
+                <td>{{ habitacion.estado }}</td>  <!-- Coincide con el campo estado -->
+                <td>{{ habitacion.descripcion }}</td>  <!-- Coincide con el campo descripcion -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
