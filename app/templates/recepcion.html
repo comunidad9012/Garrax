@@ -2,28 +2,21 @@
 
 {% block content %}
     <h1>Lista de Habitaciones</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Número</th>
-                <th>Tipo</th>
-                <th>Capacidad</th>
-                <th>Precio por Noche</th>
-                <th>Estado</th>
-                <th>Descripción</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for habitacion in habitaciones %}
-            <tr>
-                <td>{{ habitacion.numero_habitacion }}</td>  <!-- Coincide con el campo numero_habitacion -->
-                <td>{{ habitacion.tipo_habitacion }}</td>  <!-- Coincide con el campo tipo_habitacion -->
-                <td>{{ habitacion.capacidad }}</td>  <!-- Coincide con el campo capacidad -->
-                <td>{{ habitacion.precio_noche }}</td>  <!-- Coincide con el campo precio_noche -->
-                <td>{{ habitacion.estado }}</td>  <!-- Coincide con el campo estado -->
-                <td>{{ habitacion.descripcion }}</td>  <!-- Coincide con el campo descripcion -->
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{ url_for('static', filename='images/habitacion.png') }}" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                    {% for habitacion in habitaciones %}
+                        <h5 class="card-title">{{ habitacion.numero_habitacion }}</h5>
+                        <p class="card-text"> Tipo de habitacion: {{ habitacion.tipo_habitacion }}</p>
+                        <h5 class="card-title">{{habitacion.estado}}</h5>
+                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                    {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
 {% endblock %}
