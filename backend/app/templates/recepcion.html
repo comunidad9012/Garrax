@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Lista de Habitaciones</h1>
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                    {% for habitacion in habitaciones %}
+                        <h5 class="card-title">{{ habitacion.numero_habitacion }}</h5>
+                        <p class="card-text"> Tipo de habitacion: {{ habitacion.tipo_habitacion }}</p>
+                        <h5 class="card-title">{{habitacion.estado}}</h5>
+                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                    {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+{% endblock %}
