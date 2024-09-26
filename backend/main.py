@@ -7,7 +7,7 @@ from app.blueprints import register_blueprints
 
 
 
-app = Flask(__name__, template_folder='app/templates')
+app = Flask(__name__)
 CORS(app)
 
 
