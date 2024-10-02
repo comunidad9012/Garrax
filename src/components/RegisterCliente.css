@@ -1,0 +1,34 @@
+.register-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Alinea todo hacia la derecha */
+    padding: 20px; /* Agrega un poco de espacio alrededor */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column; /* Organiza los campos en una columna */
+    margin-left: 315px;
+    width: 300px; /* Ancho del formulario */
+  }
+  
+  input {
+    margin: 10px 0; /* Espacio entre los campos del formulario */
+    padding: 10px; /* Espacio dentro de los campos */
+    border: 1px solid #ccc; /* Borde de los campos */
+    border-radius: 4px; /* Bordes redondeados */
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none;
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Color al pasar el mouse sobre el botón */
+  }
+  
