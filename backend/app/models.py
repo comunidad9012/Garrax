@@ -28,5 +28,5 @@ class Piso(Base):
     __tablename__ = 'piso'
     id_piso = db.Column(db.Integer, primary_key=True)
     numero_piso = db.Column(db.Integer, nullable=False)
-    descripcion = db.Column(db.String(100), nullable=False)
+    
 

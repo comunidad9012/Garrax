@@ -5,22 +5,27 @@ import { PrimerComponente } from './components/PrimerComponente';
 import { SegundoCom } from './components/SegundoCom';
 import { Recepcion } from './components/Recepcion';
 import { Inicio } from './components/Inicio';
+import { Habitaciones } from './components/Habitaciones';
+
+
 
 function App() {
   return (
     <Router>
-      <div>
-        <PrimerComponente/> {/* Menú lateral */}
-        <SegundoCom/>
-
-        <Routes>
-          <Route path="/" element={<Inicio />} />
-          <Route path="/recepcion" element={<Recepcion />} />
-          {/* Aquí puedes añadir más rutas si es necesario */}
-        </Routes>
+      <div className="app-container"> {/* Contenedor principal */}
+        <PrimerComponente /> {/* Menú lateral */}
+        
+        <div className="main-content"> {/* Contenido principal */}
+          <Routes>
+            <Route path="/" element={<Inicio />} />
+            <Route path="/recepcion" element={<Recepcion />} />
+            <Route path="/habitaciones" element={<Habitaciones />} />
+          </Routes>
+        </div>
       </div>
     </Router>
   );
 }
 
 export default App;
+
