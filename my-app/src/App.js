@@ -6,6 +6,9 @@ import { SegundoCom } from './components/SegundoCom';
 import { Recepcion } from './components/Recepcion';
 import { Inicio } from './components/Inicio';
 import { Habitaciones } from './components/Habitaciones';
+import Login from './components/Login';
+import Registro from './components/Registro';
+
 
 
 
@@ -20,6 +23,8 @@ function App() {
             <Route path="/" element={<Inicio />} />
             <Route path="/recepcion" element={<Recepcion />} />
             <Route path="/habitaciones" element={<Habitaciones />} />
+            <Route path="/login" element={<Login/>} />
+            <Route path="/registro" element={<Registro/>} />
           </Routes>
         </div>
       </div>

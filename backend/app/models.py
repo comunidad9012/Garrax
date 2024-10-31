@@ -1,6 +1,6 @@
 from db import Base
 from flask_sqlalchemy import SQLAlchemy
-
+from werkzeug.security import generate_password_hash, check_password_hash
 db = SQLAlchemy()
 
 class Habitacion(Base):
@@ -30,3 +30,30 @@ class Piso(Base):
     numero_piso = db.Column(db.Integer, nullable=False)
     
 
+
+class Usuario(Base):
+    __tablename__ = 'usuarios'
+
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(128), nullable=False)
+
+    def set_password(self, password):
+        self.password = generate_password_hash(password)
+
+    def verify_password(self, password):
+        return check_password_hash(self.password, password)
+
+class Registro(Base):
+    __tablename__ = 'registro'  # Nombre de la tabla en la base de datos
+
+    id = db.Column(db.Integer, primary_key=True)  # ID único para cada usuario
+    email = db.Column(db.String(120), unique=True, nullable=False)  # Email del usuario
+    password = db.Column(db.String(200), nullable=False)  # Contraseña hasheada
+
+    def __init__(self, email, password):
+        self.email = email
+        self.password = password
+
+    def __repr__(self):
+        return f'<registro {self.email}>'
