@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+.inicio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+  background: linear-gradient(to bottom, #e0f7fa, #b2ebf2); /* Fondo degradado */
+  text-align: center;
+  padding: 20px;
+  color: #2c2c2c; /* Color del texto */
+}
+
+h1 {
+  font-family: 'Candara', sans-serif;
+  font-size: 40px;
+  font-style: oblique;
+  margin-bottom: 10px;
+  color: #000000; /* Color azul para el título */
+  text-decoration: underline; /* Subraya el título */
+  font-weight: bold; /* Negrita para el título */
+}
+
+.estrella {
+  font-size: 24px;
+  margin: 10px 0;
+  color: #ffca28; /* Color dorado para las estrellas */
+}
+
+.descripcion {
+  font-family: 'Roboto', sans-serif; /* Asegura que la descripción use la misma fuente */
+  font-size: 20px;
+  max-width: 600px; /* Ancho máximo para el texto */
+  line-height: 1.5; /* Espaciado entre líneas */
+  margin: 0 auto; /* Centra el párrafo */
+}

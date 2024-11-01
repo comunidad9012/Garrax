@@ -1,0 +1,65 @@
+/* Estilos para el título del hotel */
+.sidebar h2 {
+    text-align: center; /* Centrar el título */
+    margin-bottom: 30px; /* Espacio inferior */
+    font-family: 'Poppins', sans-serif; /* Fuente personalizada */
+    font-size: 30px; /* Tamaño de fuente */
+    font-weight: 700; /* Grosor de la fuente */
+    color: #ffffff; /* Color blanco */
+    text-transform: uppercase; /* Letras mayúsculas */
+    letter-spacing: 2px; /* Espaciado entre letras */
+  }
+  
+  /* Estilos para los títulos de los submenús */
+  .submenu li {
+    margin-top: 5px; /* Espacio superior para cada enlace del submenú */
+  }
+  
+  .submenu li a {
+    color: #e0e0e0; /* Color gris claro para los enlaces del submenú */
+    text-decoration: none; /* Sin subrayado */
+    font-family: 'Poppins', sans-serif; /* Fuente personalizada */
+    font-size: 16px; /* Tamaño de fuente */
+    font-weight: 500; /* Grosor de la fuente */
+    padding: 8px; /* Espacio interno */
+    border-radius: 4px; /* Bordes redondeados */
+    display: block; /* Que el enlace ocupe toda la línea */
+    transition: background-color 0.3s ease; /* Transición suave para el fondo */
+  }
+  
+  /* Efecto hover en los enlaces del submenú */
+  .submenu li a:hover {
+    background-color: #464343; /* Color de fondo al pasar el ratón */
+    color: #ffffff; /* Color del texto en blanco al pasar el ratón */
+  }
+  
+  /* Estilos para los botones de configuración */
+  .config-button {
+    width: 100%; /* Botón ocupa todo el ancho */
+    background-color: #2c2c2c; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
+    padding: 10px 15px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    font-family: 'Poppins', sans-serif; /* Fuente personalizada */
+    font-size: 18px; /* Tamaño de fuente */
+    text-align: left; /* Alinear texto a la izquierda */
+    cursor: pointer; /* Cursor de mano */
+    transition: background-color 0.3s ease; /* Transición para el fondo */
+  }
+  
+  /* Efecto hover en el botón */
+  .config-button:hover {
+    background-color: #464343; /* Color de fondo al pasar el ratón */
+  }
+  
+  /* Ícono de flecha */
+  .icono-flecha {
+    margin-left: 10px; /* Espacio entre texto y flecha */
+    transition: transform 0.3s ease; /* Transición suave para la flecha */
+  }
+  
+  .config-button.active .icono-flecha {
+    transform: rotate(180deg); /* Girar la flecha si está activo */
+  }
+  
