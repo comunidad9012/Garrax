@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from config import Config
-from db import db, Base
+from db import db
 from app import models
 from app.blueprints import register_blueprints
 
@@ -21,7 +21,7 @@ db.init_app(app)
 register_blueprints(app) 
 
 with app.app_context():
-    Base.metadata.create_all(bind=db.engine)
+    db.Model.metadata.create_all(bind=db.engine)
 
 if __name__=='__main__':
     app.run(debug=True)

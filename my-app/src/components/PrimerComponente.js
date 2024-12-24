@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 export const PrimerComponente = () => {
   const [subMenuVisible, setSubMenuVisible] = useState(false);
 
-  
-
   return (
     <div className='sidebar'>
       <h2>HOTEL GARRAX</h2>
+      {/* Imagen debajo del título */}
+      <img src="images/garrax2.jpg" alt="Hotel Garrax" className="garrax-image" />
       <ul>
         <li><Link to="/recepcion">Recepción</Link></li>
         <li><Link to="/salida">Salida</Link></li>
@@ -31,3 +31,4 @@ export const PrimerComponente = () => {
     </div>
   );
 };
+

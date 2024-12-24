@@ -1,0 +1,54 @@
+1. React
+Qué es: React es una biblioteca de JavaScript para construir interfaces de usuario, especialmente aplicaciones de una sola página (SPA). Utiliza un enfoque basado en componentes para construir la interfaz.
+Cómo funciona en el proyecto:
+React se utiliza para la parte del frontend de tu proyecto. Los componentes React gestionan la vista de la aplicación, mostrando las habitaciones, los formularios de agregar, editar y eliminar habitaciones.
+Utiliza un enfoque basado en estados (useState) y efectos (useEffect) para manejar el flujo de datos y las interacciones con el usuario.
+A través de React, haces peticiones a tu backend Flask mediante fetch() para obtener, editar o eliminar datos (habitaciones).
+La interfaz se actualiza de manera reactiva, es decir, cuando el estado de los datos cambia (como al eliminar una habitación), React vuelve a renderizar los componentes afectados.
+2. Flask (Backend)
+Qué es: Flask es un microframework para Python que facilita la creación de aplicaciones web. Es ligero, flexible y fácil de usar, ideal para aplicaciones pequeñas o medianas.
+Cómo funciona en el proyecto:
+Flask maneja las rutas del backend de tu aplicación, proporcionando los puntos finales (endpoints) para interactuar con la base de datos y realizar operaciones CRUD (crear, leer, actualizar, eliminar) sobre las habitaciones.
+Las rutas de Flask se comunican con el frontend React a través de APIs RESTful. Cuando React hace una solicitud (fetch), Flask responde con los datos correspondientes (por ejemplo, las habitaciones disponibles).
+Flask también gestiona la eliminación de habitaciones y la actualización de sus datos cuando el usuario interactúa con la interfaz.
+3. SQLAlchemy
+Qué es: SQLAlchemy es una biblioteca ORM (Object-Relational Mapping) para Python que facilita la interacción con bases de datos relacionales. Te permite trabajar con la base de datos usando clases y objetos de Python en lugar de escribir SQL directamente.
+Cómo funciona en el proyecto:
+En tu proyecto, SQLAlchemy se utiliza para definir el modelo de datos (Habitacion) y realizar operaciones sobre la base de datos de forma sencilla.
+Usas db.Model para definir las tablas de la base de datos, y las instancias de esas clases representan filas en las tablas correspondientes.
+A través de SQLAlchemy, realizas operaciones como obtener habitaciones (Habitacion.query.all()), eliminar habitaciones (db.session.delete()), y actualizar habitaciones (db.session.commit()).
+4. MySQL
+Qué es: MySQL es un sistema de gestión de bases de datos relacional (RDBMS) de código abierto. Permite almacenar y gestionar grandes cantidades de datos estructurados en tablas relacionadas.
+Cómo funciona en el proyecto:
+MySQL almacena la información de las habitaciones, incluyendo detalles como el número de habitación, tipo, precio, estado, etc.
+Flask interactúa con MySQL a través de SQLAlchemy, lo que te permite realizar consultas a la base de datos sin necesidad de escribir SQL manualmente.
+5. Bootstrap
+Qué es: Bootstrap es un framework de diseño front-end que proporciona plantillas CSS, componentes y utilidades para desarrollar interfaces web de forma rápida y responsive.
+Cómo funciona en el proyecto:
+Bootstrap se utiliza en tu proyecto para estilizar la interfaz de usuario de manera rápida. Proporciona componentes predefinidos como tablas, botones, formularios y paginación que son fáciles de integrar en tu aplicación.
+Utilizas clases de Bootstrap como btn, table, pagination, etc., para crear una interfaz visualmente atractiva y funcional.
+6. JavaScript (ES6+)
+Qué es: JavaScript es el lenguaje de programación principal para el desarrollo web interactivo. Con ES6+ (la versión moderna de JavaScript), se introdujeron características como funciones flecha, promesas, módulos y más, que hacen que el desarrollo sea más eficiente.
+Cómo funciona en el proyecto:
+JavaScript se utiliza para manejar la lógica de interacción en el frontend de la aplicación. Por ejemplo, gestionas la paginación, el manejo de formularios, la eliminación y edición de habitaciones, y las interacciones con el backend utilizando JavaScript.
+Utilizas fetch() para hacer solicitudes HTTP a tu servidor Flask (que es una API RESTful).
+7. HTML/CSS
+Qué es: HTML es el lenguaje de marcado para crear la estructura de una página web, y CSS es el lenguaje de estilos que se utiliza para darle formato y diseño visual a esa estructura.
+Cómo funciona en el proyecto:
+HTML se utiliza para definir la estructura de la página web, como las tablas para mostrar las habitaciones, los botones para agregar o eliminar habitaciones, y los formularios para editar o agregar habitaciones.
+CSS (y Bootstrap) se utiliza para darle estilo a esos elementos HTML y hacer que la aplicación sea visualmente atractiva y fácil de usar. Además, se encarga de hacer que la aplicación sea responsive, es decir, que se adapte a diferentes tamaños de pantalla.
+8. API RESTful
+Qué es: Una API RESTful es una arquitectura de software que utiliza el protocolo HTTP para interactuar con el servidor y permitir la comunicación entre el frontend y el backend.
+Cómo funciona en el proyecto:
+Tu backend Flask proporciona una API RESTful que maneja las operaciones sobre las habitaciones (obtener, agregar, editar, eliminar).
+El frontend en React hace solicitudes HTTP (GET, POST, PUT, DELETE) a esos endpoints de la API, lo que permite la actualización dinámica de la interfaz sin necesidad de recargar la página.
+En resumen:
+React maneja el frontend de la aplicación, interactuando con los usuarios a través de componentes.
+Flask sirve como backend, gestionando las rutas y la lógica del servidor.
+SQLAlchemy facilita la interacción con la base de datos MySQL.
+MySQL almacena los datos de las habitaciones.
+Bootstrap proporciona un marco de trabajo para el diseño de la interfaz.
+JavaScript (ES6+) gestiona la lógica de la interacción y las solicitudes al backend.
+HTML/CSS estructuran y estilizan la página web.
+API RESTful conecta el frontend con el backend a través de solicitudes HTTP.
+Estas tecnologías trabajan juntas para crear una aplicación web dinámica y funcional de gestión hotelera.

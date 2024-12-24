@@ -14,6 +14,7 @@ def lista_habitaciones():
         {"id_habitacion": h.id_habitacion, 
          "numero_habitacion": h.numero_habitacion, 
          "tipo_habitacion": h.tipo_habitacion, 
+         "capacidad": h.capacidad,
          "precio_noche": h.precio_noche, 
          "estado": h.estado, 
          "descripcion": h.descripcion}

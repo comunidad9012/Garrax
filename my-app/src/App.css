@@ -1,18 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css);
+@import url(https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css);
 
 /* Estilos generales de la barra lateral */
 .sidebar {
-  width: 300px;
-  background-color: #2c2c2c;
-  color: #fff;
-  padding: 20px;
+  background-color: #2C3E50;
+  width: 250px;
+  height: 100%;
   position: fixed;
   top: 0;
-  bottom: 0;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  overflow-y: auto; /* Permite scroll si el contenido excede la altura */
-  z-index: 1000; /* Asegura que esté siempre en la parte superior */
+  left: 0;
+  padding-top: 20px;
 }
+
+.sidebar a {
+  color: white;
+  padding: 15px;
+  text-decoration: none;
+  display: block;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+  background-color: #34495E;
+  border-radius: 5px;
+}
+
+.sidebar a.active {
+  background-color: #2980B9;
+}
+
 
 /* Contenedor principal para los elementos de React */
 .main-content {
@@ -127,10 +145,114 @@
 }
 
 /*TAMAÑO DE LAS TARJETAS*/
-.card-fixed {
-  width: 500px;  /* Fija el ancho a 300px */
-  height: 400px; /* Fija la altura a 400px */
+.room-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
 }
+
+.room-card:hover {
+  transform: scale(1.05);
+}
+
+.room-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.room-card-body {
+  padding: 20px;
+}
+
+.room-card-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2C3E50;
+}
+
+.room-card-price {
+  color: #2980B9;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.room-card-actions {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.btn-primary {
+  background-color: #2980B9;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1A5276;
+}
+
+.form-container {
+  background-color: #f7f7f7;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.form-container h2 {
+  text-align: center;
+  color: #2C3E50;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-size: 16px;
+  color: #34495E;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-control:focus {
+  border-color: #2980B9;
+  box-shadow: 0 0 5px rgba(41, 128, 185, 0.5);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  background-color: #2980B9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #1A5276;
+}
+
 
 /* Estilo del CRUD de configuracion/habitaciones */
 .table {
@@ -161,6 +283,15 @@
   color: #dc3545;
 }
 
+.btn-agregar{
+  background-color: rgb(21, 182, 0);
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  border-radius: 30px;
+  font-size: 23px;
+}
+
 /* Paginación */
 .pagination {
   display: flex;
@@ -185,4 +316,327 @@
 .pagination button:hover {
   background-color: #007bff;
   color: white;
+}
+
+/*EFECTO BORROSO PARA VENTANA EMERGENTE DEL FORM AGREGAR HABITACION*/
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px); /* Fondo borroso */
+  z-index: 1000;
+}
+
+/*FORMULARIO AGREGAR PISO*/
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn-save {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.success-message {
+  color: green;
+  margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Formulario para asignar cliente a habitacion*/
+.formulario-asignacion {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 10px;
+}
+
+.recepcion {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card-fixed {
+  max-width: 400px;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+.recepcion {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Estilo para el título principal */
+.titulo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el mensaje de éxito */
+.alert.alert-success {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.alert button {
+    margin-top: 10px;
+    background-color: #333;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.alert button:hover {
+    background-color: #555;
+}
+
+/* Estilo para el mensaje de error */
+.mensaje-error {
+    color: #FF4136;
+    background-color: #ffe6e6;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #FF4136;
+    border-radius: 5px;
+}
+
+/* Estilos para los botones */
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Estilo para los formularios */
+.formulario-asignacion {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.formulario-asignacion h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #343a40;
+}
+
+.formulario-asignacion p {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 8px;
+}
+
+.formulario-asignacion label {
+  font-weight: 500;
+  color: #495057;
+  font-size: 0.9rem;
+}
+
+.formulario-asignacion input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.formulario-asignacion button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.formulario-asignacion button:hover {
+  background-color: #0056b3;
+}
+
+.formulario-asignacion .cancel-button {
+  background-color: #6c757d;
+  margin-left: 10px;
+}
+
+.formulario-asignacion .cancel-button:hover {
+  background-color: #5a6268;
+}
+
+/* Estilo para las tarjetas de habitaciones */
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card .card-body {
+    padding: 15px;
+}
+
+.card .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.card .card-text {
+    color: #666;
+    font-size: 1rem;
+}
+
+.card img {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 100%;
+    height: auto;
+}
+
+/* Estilos para el mensaje de asignación de cliente */
+.mensaje-asignacion {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.mensaje-asignacion h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.mensaje-asignacion p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.mensaje-asignacion button {
+    background-color: #FF4136;
+    margin-top: 15px;
+}
+
+.mensaje-asignacion button:hover {
+    background-color: #cc0000;
+}
+
+.garrax-image {
+  width: 70%; /* O el tamaño que desees */
+  margin-top: -40px; /* Espacio entre el título y la imagen */
+  border-radius: 150px; /* Bordes redondeados opcionales */
+  margin-left: 40px;
 }
